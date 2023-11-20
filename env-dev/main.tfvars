@@ -49,3 +49,4 @@ components = {
 security_group  = [ "sg-06c4c9ba200d014bf" ]
 
 zone_id         = "Z09517412DHKFAPXSWNLX"
+
