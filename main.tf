@@ -1,4 +1,4 @@
-module "components" {
+module "vpc" {
   source              = "git::https://github.com/Annepuvarunkumar/tf-module-vpc.git"
 
   for_each    = var.vpc
@@ -7,4 +7,7 @@ module "components" {
 }
 
 
+output "vpc" {
+  value = "module.vpc"
+}
 
