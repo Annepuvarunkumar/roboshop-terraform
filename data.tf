@@ -4,3 +4,4 @@ data "aws_subnets" "subnets" {
     values = [var.default_vpc_id]
   }
 }
+
