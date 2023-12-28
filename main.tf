@@ -24,8 +24,6 @@ module "alb" {
   subnets         = each.value["internal"] ? local.app_subnets : data.aws_subnets.subnets.ids
   tags            = var.tags
   env             = var.env
-  engine_family   = each.value["engine_family"]
-
 }
 
 
@@ -42,6 +40,8 @@ module "docdb" {
   vpc_id                    = local.vpc_id
   sg_ingress_cidr           = local.app_subnets_cidr
   engine_version            = each.value["engine_version"]
+  engine_family   = each.value["engine_family"]
+
 }
 
 
