@@ -24,6 +24,7 @@ module "alb" {
   subnets         = each.value["internal"] ? local.app_subnets : data.aws_subnets.subnets.ids
   tags            = var.tags
   env             = var.env
+  engine_family   = each.value["engine_family"]
 
 }
 
