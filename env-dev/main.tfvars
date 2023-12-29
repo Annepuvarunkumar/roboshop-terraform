@@ -61,7 +61,14 @@ docdb =  {
 }
 
 
+rds = {
+  main = {
+    rds_type               = "mysql"
 
+
+
+  }
+}
 
 
 

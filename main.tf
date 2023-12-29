@@ -47,8 +47,16 @@ module "docdb" {
 
 
 
+module "rds" {
+  source = "git::https://github.com/Annepuvarunkumar/tf-module-rds.git"
+  tags                       = var.tags
+  env                        = var.env
+
+  for_each                   = var.rds
+  subnet_ids                 = local.db_subnets
+  rds_type                   = each.value["rds_type"]
 
 
-
+}
 
 
