@@ -1,3 +1,19 @@
+default_vpc_id              = "vpc-0305649e88de612af"
+default_vpc_cidr            = "172.31.0.0/16"
+default_vpc_route_table_id  = "rtb-02728873e0fce7789"
+zone_id                     = "Z09517412DHKFAPXSWNLX"
+env                         = "dev"
+ssh_ingress_cidr            = ["172.31.86.216/32"]
+
+tags = {
+  company_name    = "ABC Tech"
+  business_unit   = "Ecommerce"
+  project_name    = "robotshop"
+  cost_center     = "ecom_rs"
+  created_by      = "terraform"
+}
+
+
 vpc = {
   main = {
     cidr = "10.0.0.0/16"
@@ -18,19 +34,6 @@ vpc = {
    }
 }
 
-default_vpc_id              = "vpc-0305649e88de612af"
-default_vpc_cidr            = "172.31.0.0/16"
-default_vpc_route_table_id  = "rtb-02728873e0fce7789"
-
-tags = {
-  company_name    = "ABC Tech"
-  business_unit   = "Ecommerce"
-  project_name    = "robotshop"
-  cost_center     = "ecom_rs"
-  created_by      = "terraform"
-}
-
-env = "dev"
 
 alb = {
   public    = {
@@ -88,7 +91,13 @@ elasticache = {
   }
 }
 
-
+rabbitmq =
+{
+  main = {
+    ssh_ingress_cidr = ["172.31.86.216/32"]
+    instance_type    = "t3.micro"
+  }
+}
 
 
 
