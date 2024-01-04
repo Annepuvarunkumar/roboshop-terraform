@@ -1,5 +1,5 @@
 output "alb" {
-  value = module.alb
+  value = lookup(module.alb, "private", null )
 }
 
 
