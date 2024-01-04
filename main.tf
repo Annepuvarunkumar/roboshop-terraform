@@ -88,36 +88,36 @@ module "alb" {
 #}
 #
 
-module "rabbitmq" {
-  source    = "git::https://github.com/Annepuvarunkumar/tf-module-rabbitmq.git"
-  tags      = var.tags
-  env       = var.env
-  zone_id   = var.zone_id
-
-  for_each                   = var.rabbitmq
-  ssh_ingress_cidr           = var.ssh_ingress_cidr
-  instance_type              = each.value["instance_type"]
-
-  subnet_ids                 = local.db_subnets
-  vpc_id                     = local.vpc_id
-  sg_ingress_cidr            = local.app_subnets_cidr
-}
-
-
-#module "app" {
-#  source           = "git::https://github.com/Annepuvarunkumar/tf-module-app.git"
-#  tags             = var.tags
-#  env              = var.env
-#  zone_id          = var.zone_id
-#  ssh_ingress_cidr = var.ssh_ingress_cidr
+#module "rabbitmq" {
+#  source    = "git::https://github.com/Annepuvarunkumar/tf-module-rabbitmq.git"
+#  tags      = var.tags
+#  env       = var.env
+#  zone_id   = var.zone_id
 #
-#  for_each         = var.app
-#  component        = each.key
-#  port             = each.value["port"]
-#  instance_type    = each.value["instance_type"]
+#  for_each                   = var.rabbitmq
+#  ssh_ingress_cidr           = var.ssh_ingress_cidr
+#  instance_type              = each.value["instance_type"]
 #
-#  vpc_id           = local.vpc_id
-#  subnet_ids       = local.db_subnets
-#  sg_ingress_cidr  = local.app_subnets_cidr
+#  subnet_ids                 = local.db_subnets
+#  vpc_id                     = local.vpc_id
+#  sg_ingress_cidr            = local.app_subnets_cidr
 #}
+
+
+module "app" {
+  source           = "git::https://github.com/Annepuvarunkumar/tf-module-app.git"
+  tags             = var.tags
+  env              = var.env
+  zone_id          = var.zone_id
+  ssh_ingress_cidr = var.ssh_ingress_cidr
+
+  for_each         = var.app
+  component        = each.key
+  port             = each.value["port"]
+  instance_type    = each.value["instance_type"]
+
+  vpc_id           = local.vpc_id
+  subnet_ids       = local.db_subnets
+  sg_ingress_cidr  = local.app_subnets_cidr
+}
 
