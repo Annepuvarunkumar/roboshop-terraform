@@ -114,6 +114,7 @@ module "app" {
   for_each         = var.app
   component        = each.key
   port             = each.value["port"]
+  instance_type    = each.value["instance_type"]
 
   vpc_id           = local.vpc_id
   subnet_ids       = local.db_subnets
