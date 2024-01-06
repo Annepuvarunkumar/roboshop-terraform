@@ -125,6 +125,6 @@ module "app" {
   sg_ingress_cidr  = local.app_subnets_cidr
 
   alb_name        = lookup(lookup(lookup(module.alb, "private", null ), "alb", null), "dns_name", null)
-  listener        = lookup(lookup(lookup(module.alb, "private", null ), "alb", null), "arn", null)
+  listener        = lookup(lookup(lookup(module.alb, "private", null ), "listener", null), "arn", null)
 }
 
