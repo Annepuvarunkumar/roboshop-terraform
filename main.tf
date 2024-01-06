@@ -118,12 +118,13 @@ module "app" {
   desired_capacity = each.value["desired_capacity"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
+  lb_priority      = each.value["lb_priority"]
 
   vpc_id           = local.vpc_id
   subnet_ids       = local.db_subnets
   sg_ingress_cidr  = local.app_subnets_cidr
 
   alb_name        = lookup(lookup(lookup(module.alb, "private", null ), "alb", null), "dns_name", null)
-
+  listener        = lookup(lookup(lookup(module.alb, "private", null ), "alb", null), "arn", null)
 }
 
