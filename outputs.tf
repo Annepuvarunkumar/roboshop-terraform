@@ -1,5 +1,5 @@
-output "listener" {
-  value = module.alb
-}
+#output "listener" {
+#  value = module.alb
+#}
 
 
