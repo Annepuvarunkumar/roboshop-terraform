@@ -122,7 +122,7 @@ module "app" {
   lb_priority      = each.value["lb_priority"]
 
   vpc_id           = local.vpc_id
-  subnet_ids       = local.db_subnets
+  subnet_ids       = local.app_subnets
   sg_ingress_cidr  = local.app_subnets_cidr
 
   public_alb_name  = lookup(lookup(lookup(module.alb, "public", null ), "alb", null), "dns_name", null)
