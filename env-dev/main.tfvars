@@ -111,7 +111,7 @@ app = {
   }
   catalogue = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
@@ -120,7 +120,7 @@ app = {
   }
   user = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
@@ -129,7 +129,7 @@ app = {
   }
   cart = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
@@ -138,7 +138,7 @@ app = {
   }
   payment = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
@@ -147,7 +147,7 @@ app = {
   }
   shipping = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
@@ -156,7 +156,7 @@ app = {
   }
   dispatch = {
     instance_type    = "t3.micro"
-    port             = 80
+    port             = 8080
     desired_capacity = 1
     max_size         = 3
     min_size         = 1
