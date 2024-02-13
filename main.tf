@@ -45,8 +45,8 @@ module "docdb" {
   instance_class            = each.value["instance_class"]
 }
 
-#
-#
+
+
 module "rds" {
   source = "git::https://github.com/Annepuvarunkumar/tf-module-rds.git"
   tags                       = var.tags
@@ -67,8 +67,8 @@ module "rds" {
   instance_class             = each.value["instance_class"]
   instance_count             = each.value["instance_count"]
 }
-#
-#
+
+
 module "elasticache" {
   source = "git::https://github.com/Annepuvarunkumar/tf-module-elasticache.git"
   tags                       = var.tags
@@ -86,7 +86,6 @@ module "elasticache" {
   num_cache_nodes            = each.value["num_cache_nodes"]
   engine_version             = each.value["engine_version"]
 }
-#
 
 module "rabbitmq" {
   source    = "git::https://github.com/Annepuvarunkumar/tf-module-rabbitmq.git"
@@ -122,6 +121,7 @@ module "app" {
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
   lb_priority      = each.value["lb_priority"]
+  parameters       = each.value["parameters"]
 
   vpc_id           = local.vpc_id
   subnet_ids       = local.app_subnets
