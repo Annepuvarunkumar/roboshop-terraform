@@ -12,3 +12,4 @@ variable "rabbitmq" {}
 variable "zone_id" {}
 variable "ssh_ingress_cidr" {}
 variable "app" {}
+variable "monitoring_ingress_cidr" {}
